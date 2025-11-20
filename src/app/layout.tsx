@@ -16,9 +16,72 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agentic Coding Boilerplate",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
+  title: {
+    default: "Plushify - Transform Photos into Adorable AI Plushies",
+    template: "%s | Plushify"
+  },
   description:
-    "Complete agentic coding boilerplate with authentication, database, AI integration, and modern tooling - perfect for building AI-powered applications and autonomous agents by Leon van Zyl",
+    "Transform your photos into adorable plushies with AI! Upload any photo and watch our advanced AI create a personalized plushie in seconds. Choose from Classic, Kawaii, or Realistic styles. 50 free credits to start!",
+  keywords: [
+    "AI plushie generator",
+    "custom plushie",
+    "photo to plushie",
+    "AI art generator",
+    "personalized gifts",
+    "cute plushies",
+    "photo transformation",
+    "kawaii plushie",
+    "custom stuffed animal",
+    "AI photo editing"
+  ],
+  authors: [{ name: "Plushify Team" }],
+  creator: "Plushify",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "Plushify - Transform Photos into Adorable AI Plushies",
+    description: "Transform your photos into adorable plushies with AI! Upload any photo and watch our advanced AI create a personalized plushie in seconds.",
+    siteName: "Plushify",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Plushify - AI Plushie Generator",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Plushify - Transform Photos into Adorable AI Plushies",
+    description: "Transform your photos into adorable plushies with AI! Upload any photo and watch our advanced AI create a personalized plushie in seconds.",
+    images: ["/og-image.jpg"],
+    creator: "@plushify",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "verification-code-here",
+  },
 };
 
 export default function RootLayout({
@@ -26,8 +89,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Plushify",
+    "description": "Transform your photos into adorable plushies with AI",
+    "url": process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    "applicationCategory": "AI Photo Editor",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "50 free credits to start"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Plushify",
+      "description": "AI-powered plushie generation service"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

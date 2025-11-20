@@ -30,6 +30,14 @@ export const useSession = () => {
   };
 };
 
+export const useUser = () => {
+  return {
+    data: mockSession.user,
+    isPending: false,
+    error: null,
+  };
+};
+
 export const getSession = async () => {
   return { data: mockSession, error: null };
 };
