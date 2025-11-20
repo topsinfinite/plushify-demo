@@ -2,13 +2,9 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SetupChecklist } from "@/components/setup-checklist";
-import { useDiagnostics } from "@/hooks/use-diagnostics";
-import { StarterPromptModal } from "@/components/starter-prompt-modal";
-import { Video, Shield, Database, Palette, Bot } from "lucide-react";
+import { Shield, Database, Palette, Bot } from "lucide-react";
 
 export default function Home() {
-  const { isAuthReady, isAiReady, loading } = useDiagnostics();
   return (
     <main className="flex-1 container mx-auto px-4 py-12">
       <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -18,153 +14,108 @@ export default function Home() {
               <Bot className="h-7 w-7 text-primary" />
             </div>
             <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
-              Starter Kit
+              Plushify
             </h1>
           </div>
           <h2 className="text-2xl font-semibold text-muted-foreground">
-            Complete Boilerplate for AI Applications
+            Transform Photos into Adorable Plushie Designs
           </h2>
           <p className="text-xl text-muted-foreground">
-            A complete agentic coding boilerplate with authentication, database, AI
-            integration, and modern tooling for building AI-powered applications
+            Upload any photo and watch our AI transform it into a cute, cuddly plushie design. Perfect for gifts, keepsakes, or just for fun!
           </p>
         </div>
 
-        {/* YouTube Tutorial Video */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-semibold flex items-center justify-center gap-2">
-            <Video className="h-6 w-6" />
-            Video Tutorial
-          </h3>
-          <p className="text-muted-foreground">
-            Watch the complete walkthrough of this agentic coding boilerplate:
-          </p>
-          <div className="relative w-full max-w-3xl mx-auto">
-            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg border">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src="https://www.youtube.com/embed/T0zFZsr_d0Q"
-                title="Agentic Coding Boilerplate Tutorial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <div className="p-6 border rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
-              <Shield className="h-4 w-4" />
-              Authentication
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Better Auth with Google OAuth integration
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg">
-            <h3 className="font-semibold mb-2 flex items-center gap-2">
-              <Database className="h-4 w-4" />
-              Database
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              Drizzle ORM with PostgreSQL setup
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg">
-            <h3 className="font-semibold mb-2 flex items-center gap-2">
               <Bot className="h-4 w-4" />
-              AI Ready
+              AI-Powered
             </h3>
             <p className="text-sm text-muted-foreground">
-              Vercel AI SDK with OpenRouter integration
+              Advanced AI transforms your photos into plushie designs
             </p>
           </div>
           <div className="p-6 border rounded-lg">
             <h3 className="font-semibold mb-2 flex items-center gap-2">
               <Palette className="h-4 w-4" />
-              UI Components
+              Multiple Styles
             </h3>
             <p className="text-sm text-muted-foreground">
-              shadcn/ui with Tailwind CSS
+              Choose from Classic, Kawaii, and Realistic styles
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg">
+            <h3 className="font-semibold mb-2 flex items-center gap-2">
+              <Shield className="h-4 w-4" />
+              Secure & Private
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Your photos are processed securely and privately
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg">
+            <h3 className="font-semibold mb-2 flex items-center gap-2">
+              <Database className="h-4 w-4" />
+              Gallery Storage
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              Save and organize all your plushie creations
             </p>
           </div>
         </div>
 
         <div className="space-y-6 mt-12">
-          <SetupChecklist />
-
-          <h3 className="text-2xl font-semibold">Next Steps</h3>
+          <h3 className="text-2xl font-semibold">Get Started with Plushify</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
             <div className="p-4 border rounded-lg">
               <h4 className="font-medium mb-2">
-                1. Set up environment variables
+                1. Upload Your Photo
               </h4>
               <p className="text-sm text-muted-foreground mb-2">
-                Copy <code>.env.example</code> to <code>.env.local</code> and
-                configure:
+                Choose a clear photo of yourself, a loved one, or pet
               </p>
               <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
-                <li>POSTGRES_URL (PostgreSQL connection string)</li>
-                <li>GOOGLE_CLIENT_ID (OAuth credentials)</li>
-                <li>GOOGLE_CLIENT_SECRET (OAuth credentials)</li>
-                <li>OPENROUTER_API_KEY (for AI functionality)</li>
+                <li>High quality images work best</li>
+                <li>Good lighting is important</li>
+                <li>Clear view of subject</li>
               </ul>
             </div>
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">2. Set up your database</h4>
+              <h4 className="font-medium mb-2">2. Choose Your Style</h4>
               <p className="text-sm text-muted-foreground mb-2">
-                Run database migrations:
+                Select from our curated plushie styles:
               </p>
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
+                <li>Classic - Traditional plushie look</li>
+                <li>Kawaii - Cute Japanese-inspired style</li>
+                <li>Realistic - Lifelike plushie design</li>
+              </ul>
+            </div>
+            <div className="p-4 border rounded-lg">
+              <h4 className="font-medium mb-2">3. Generate & Download</h4>
               <div className="space-y-2">
-                <code className="text-sm bg-muted p-2 rounded block">
-                  npm run db:generate
-                </code>
-                <code className="text-sm bg-muted p-2 rounded block">
-                  npm run db:migrate
-                </code>
+                <Button asChild size="sm" className="w-full">
+                  <Link href="/dashboard">View Dashboard</Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                >
+                  <Link href="/generate">Start Creating</Link>
+                </Button>
               </div>
             </div>
             <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">3. Try the features</h4>
-              <div className="space-y-2">
-                {loading || !isAuthReady ? (
-                  <Button size="sm" className="w-full" disabled={true}>
-                    View Dashboard
-                  </Button>
-                ) : (
-                  <Button asChild size="sm" className="w-full">
-                    <Link href="/dashboard">View Dashboard</Link>
-                  </Button>
-                )}
-                {loading || !isAiReady ? (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                    disabled={true}
-                  >
-                    Try AI Chat
-                  </Button>
-                ) : (
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="w-full"
-                  >
-                    <Link href="/chat">Try AI Chat</Link>
-                  </Button>
-                )}
-              </div>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <h4 className="font-medium mb-2">4. Start building</h4>
+              <h4 className="font-medium mb-2">4. Share & Enjoy</h4>
               <p className="text-sm text-muted-foreground mb-3">
-                Customize the components, add your own pages, and build your
-                application on top of this solid foundation.
+                Download your plushie design and share it with friends. Perfect for gifts, keepsakes, or just for fun!
               </p>
-              <StarterPromptModal />
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <Link href="/gallery">View Gallery</Link>
+              </Button>
             </div>
           </div>
         </div>

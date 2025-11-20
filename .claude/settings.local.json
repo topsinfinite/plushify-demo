@@ -18,6 +18,8 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
+    "shadcn",
+    "playwright",
     "context7"
   ]
 }
