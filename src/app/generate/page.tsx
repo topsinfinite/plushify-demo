@@ -1,15 +1,4 @@
-import type { Metadata } from "next";
-
 "use client"
-
-export const metadata: Metadata = {
-  title: "Generate AI Plushie",
-  description: "Transform your photos into adorable plushies with AI! Upload any photo and choose from Classic, Kawaii, or Realistic styles. Generate your personalized plushie in seconds.",
-  openGraph: {
-    title: "Generate AI Plushie - Plushify",
-    description: "Transform your photos into adorable plushies with AI! Upload any photo and choose from Classic, Kawaii, or Realistic styles.",
-  },
-};
 
 import { useState, useCallback } from "react"
 import { useRouter } from "next/navigation"
