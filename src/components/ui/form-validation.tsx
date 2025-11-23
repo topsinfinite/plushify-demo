@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useState, useEffect, useCallback } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { AlertCircle, CheckCircle, X } from "lucide-react";
+import { AlertCircle, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ValidationRule {
@@ -99,17 +98,17 @@ export function ValidatedInput({
   const [touched, setTouched] = useState(false);
   const [validation, setValidation] = useState<ValidationResult>({ isValid: true });
 
-  const validate = () => {
+  const validate = useCallback(() => {
     const result = validateField(value, rules);
     setValidation(result);
     return result;
-  };
+  }, [value, rules]);
 
   useEffect(() => {
     if (touched && validateOnChange) {
       validate();
     }
-  }, [value, touched, validateOnChange]);
+  }, [value, touched, validateOnChange, validate]);
 
   const handleBlur = () => {
     setTouched(true);
@@ -187,17 +186,17 @@ export function ValidatedTextarea({
   const [touched, setTouched] = useState(false);
   const [validation, setValidation] = useState<ValidationResult>({ isValid: true });
 
-  const validate = () => {
+  const validate = useCallback(() => {
     const result = validateField(value, rules);
     setValidation(result);
     return result;
-  };
+  }, [value, rules]);
 
   useEffect(() => {
     if (touched && validateOnChange) {
       validate();
     }
-  }, [value, touched, validateOnChange]);
+  }, [value, touched, validateOnChange, validate]);
 
   const handleBlur = () => {
     setTouched(true);

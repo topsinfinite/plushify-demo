@@ -46,7 +46,7 @@ export function SiteHeader() {
                 href="/gallery"
                 className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Image className="h-4 w-4" />
+                <Image className="h-4 w-4" aria-label="Gallery icon" />
                 Gallery
               </Link>
               <Link

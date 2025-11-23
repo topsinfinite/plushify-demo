@@ -448,7 +448,7 @@ export default function UploadGuidelinesPage() {
         {/* Call to Action */}
         <Card className="text-center">
           <CardContent className="pt-8">
-            <Image className="h-16 w-16 mx-auto mb-4 text-primary" />
+            <Image className="h-16 w-16 mx-auto mb-4 text-primary" aria-label="Upload icon" />
             <h3 className="text-2xl font-bold mb-4">Ready to Upload Your Photo?</h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               Follow these guidelines and you&apos;ll be amazed at the quality of your AI-generated plushie!

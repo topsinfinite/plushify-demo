@@ -14,7 +14,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Alert, AlertDescription } from "@/components/ui/alert"
 import { getMockUserGenerations, MockGeneration, mockGenerations } from "@/lib/mock-data"
 import {
   Search,
@@ -29,8 +28,7 @@ import {
   Star,
   ImageIcon,
   User,
-  PawPrint,
-  X
+  PawPrint
 } from "lucide-react"
 
 type FilterType = "all" | "people" | "pets" | "favorites"
