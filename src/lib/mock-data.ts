@@ -1,17 +1,3 @@
-export interface MockUser {
-  id: string;
-  name: string;
-  email: string;
-  image?: string;
-  joinDate: Date;
-  createdAt: Date;
-  emailVerified: boolean;
-  credits: number;
-  totalGenerations: number;
-  creditsUsed: number;
-  favoriteCount: number;
-}
-
 export interface MockGeneration {
   id: string;
   userId: string;
@@ -38,29 +24,6 @@ export interface MockTestimonial {
   rating: 5;
   createdAt: Date;
 }
-
-export interface MockSession {
-  user: MockUser;
-  session: {
-    token: string;
-    expiresAt: Date;
-  };
-}
-
-// Mock user data
-export const mockUser: MockUser = {
-  id: "mock-user-123",
-  name: "Alex Johnson",
-  email: "alex@example.com",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-  joinDate: new Date("2024-01-15"),
-  createdAt: new Date("2024-01-15"),
-  emailVerified: true,
-  credits: 50,
-  totalGenerations: 23,
-  creditsUsed: 73,
-  favoriteCount: 8,
-};
 
 // Mock generation data - Diverse representation with 20+ high-quality examples
 export const mockGenerations: MockGeneration[] = [
@@ -482,15 +445,6 @@ export const mockStats = {
   monthlyGrowth: 156,
 };
 
-// Mock session
-export const mockSession: MockSession = {
-  user: mockUser,
-  session: {
-    token: "mock-token-xyz789",
-    expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
-  },
-};
-
 // Helper functions
 export function getMockUserGenerations(filter?: "all" | "people" | "pets" | "favorites"): MockGeneration[] {
   let filtered = [...mockGenerations];
@@ -506,42 +460,13 @@ export function getMockUserGenerations(filter?: "all" | "people" | "pets" | "fav
   return filtered.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
 }
 
-export function getMockUserStats() {
-  return {
-    totalGenerations: mockUser.totalGenerations,
-    creditsUsed: mockUser.creditsUsed,
-    creditsRemaining: mockUser.credits,
-    favoriteCount: mockUser.favoriteCount,
-    joinDate: mockUser.joinDate,
-    recentGenerations: getMockUserGenerations().slice(0, 6),
-  };
-}
-
-export function updateMockUserCredits(amount: number) {
-  mockUser.credits = Math.max(0, mockUser.credits + amount);
-}
-
-export function spendMockCredits(amount: number): boolean {
-  if (mockUser.credits >= amount) {
-    mockUser.credits -= amount;
-    mockUser.creditsUsed += amount;
-    return true;
-  }
-  return false;
-}
-
-export function updateUserCredits(newAmount: number) {
-  mockUser.credits = Math.max(0, newAmount);
-}
-
 export function createGeneration(generation: Omit<MockGeneration, "userId">) {
   const newGeneration: MockGeneration = {
     ...generation,
-    userId: mockUser.id,
+    userId: "demo-user",
   };
 
   mockGenerations.unshift(newGeneration);
-  mockUser.totalGenerations += 1;
 
   return newGeneration;
 }

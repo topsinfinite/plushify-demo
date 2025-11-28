@@ -17,7 +17,10 @@ export function SignInButton() {
   return (
     <Button
       onClick={async () => {
-        await signIn();
+        await signIn.social({
+          provider: "google",
+          callbackURL: "/dashboard",
+        });
       }}
     >
       Sign in with Google

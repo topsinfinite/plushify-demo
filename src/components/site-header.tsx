@@ -1,9 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { UserProfile } from "@/components/auth/user-profile";
 import { ModeToggle } from "./ui/mode-toggle";
-import { Bot, Sparkles, Image, Grid3X3 } from "lucide-react";
+import { Bot, Sparkles, Image, Grid3X3, Zap, DollarSign, Shield } from "lucide-react";
 import { useSession } from "@/lib/auth-client";
-import { mockUser } from "@/lib/mock-data";
 
 export function SiteHeader() {
   const { data: session } = useSession();
@@ -26,7 +27,7 @@ export function SiteHeader() {
             </Link>
           </h1>
 
-          {session && (
+          {session ? (
             <nav className="hidden md:flex items-center gap-6">
               <Link
                 href="/dashboard"
@@ -49,10 +50,36 @@ export function SiteHeader() {
                 <Image className="h-4 w-4" aria-label="Gallery icon" />
                 Gallery
               </Link>
+              {session.user.platformRole === "admin" && (
+                <Link
+                  href="/admin"
+                  className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                >
+                  <Shield className="h-4 w-4" />
+                  Admin
+                </Link>
+              )}
               <Link
                 href="/pricing"
                 className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
+                Pricing
+              </Link>
+            </nav>
+          ) : (
+            <nav className="hidden md:flex items-center gap-6">
+              <Link
+                href="/how-it-works"
+                className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Zap className="h-4 w-4" />
+                How it Works
+              </Link>
+              <Link
+                href="/pricing"
+                className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <DollarSign className="h-4 w-4" />
                 Pricing
               </Link>
             </nav>
@@ -63,7 +90,7 @@ export function SiteHeader() {
           {session && (
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-lg">
               <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium">{mockUser.credits} credits</span>
+              <span className="text-sm font-medium">{session.user.credits ?? 0} credits</span>
             </div>
           )}
           <UserProfile />

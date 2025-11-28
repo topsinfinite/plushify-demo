@@ -8,6 +8,27 @@
       "when": 1762409965425,
       "tag": "0000_chilly_the_phantom",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764265682607,
+      "tag": "0001_unusual_blue_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1764274979347,
+      "tag": "0002_slim_wild_pack",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1764352642388,
+      "tag": "0003_busy_lady_bullseye",
+      "breakpoints": true
     }
   ]
 }
