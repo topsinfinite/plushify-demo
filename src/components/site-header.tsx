@@ -69,7 +69,7 @@ export function SiteHeader() {
           ) : (
             <nav className="hidden md:flex items-center gap-6">
               <Link
-                href="/how-it-works"
+                href="/docs"
                 className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Zap className="h-4 w-4" />
